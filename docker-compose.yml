@@ -1,0 +1,15 @@
+services:
+
+  notification_service:
+    image: postgres:15
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: notifications
+      POSTGRES_PASSWORD: 1122
+    volumes:
+      - postgres-database:/var/lib/postgresql/data
+
+volumes:
+  postgres-database:

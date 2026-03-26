@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Nest Debug Direct",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "node",
+        "runtimeArgs": [
+          "--inspect-brk",
+          "./node_modules/@nestjs/cli/bin/nest.js",
+          "start",
+          "--watch"
+        ],
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "restart": true,
+        "skipFiles": ["<node_internals>/**"]
+      }
+    ]
+  }
