@@ -17,6 +17,8 @@ Supported channels:
 
 The system is designed to be extensible, allowing new channels to be added without modifying existing logic.
 
+[![codecov](https://codecov.io/gh/daniel-agudelo21/Notification-system/graph/badge.svg?token=TG04W8G89E)](https://codecov.io/gh/daniel-agudelo21/Notification-system)
+
 ## Tech Stack
 
 - Backend: NestJS (TypeScript)
