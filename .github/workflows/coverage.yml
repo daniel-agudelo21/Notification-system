@@ -1,28 +1,30 @@
-name: Run tests and upload coverage
+name: Coverage
 
-on: 
-  push
+on:
+  push:
+    branches: [main, master]
+  pull_request:
 
 jobs:
-  test:
-    name: Run tests and collect coverage
+  coverage:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
-      - name: Set up Node
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
         uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run tests
-        run: npx jest --coverage
+      - name: Run e2e coverage
+        run: npm run test:cov
 
-      - name: Upload results to Codecov
+      - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/lcov.info
